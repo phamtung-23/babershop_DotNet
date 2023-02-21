@@ -1,0 +1,25 @@
+﻿@model IEnumerable<baberShop.Models.SERVICE_SHOP>
+
+<div class="row">
+
+    <div class="col-lg-12 col-12">
+        <h2 class="mb-5">Services</h2>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-6 col-12 mb-4">
+            <div class="services-thumb">
+                <img src="@item.IMG" class="imgService" height="300" alt="">
+
+                <div class="services-info d-flex align-items-end">
+                    <h4 class="mb-0">@item.NAME_SERVICE</h4>
+
+                    <strong class="services-thumb-price">@item.PRICE VND</strong>
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+</div>

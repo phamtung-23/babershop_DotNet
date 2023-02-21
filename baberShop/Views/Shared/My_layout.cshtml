@@ -44,28 +44,7 @@
                     <a class="navbar-brand" href="index.html">
                         <img src="~/Downloads/images/templatemo-barber-logo.png" class="logo-image img-fluid" align="">
                     </a>
-
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_1">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_2">Our Story</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_3">Services</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_4">Price List</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_5">Contact</a>
-                        </li>
-                    </ul>
+                    @{ Html.RenderAction("getMenu", "HomeBaberShop");}
                 </div>
             </nav>
 

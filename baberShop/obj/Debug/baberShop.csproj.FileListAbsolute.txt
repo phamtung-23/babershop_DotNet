@@ -110,3 +110,7 @@ D:\HK2_2022-2023\DotNet\CK\baberShop\baberShop\obj\Debug\baberShop.csproj.CoreCo
 D:\HK2_2022-2023\DotNet\CK\baberShop\baberShop\obj\Debug\baberShop.csproj.CopyComplete
 D:\HK2_2022-2023\DotNet\CK\baberShop\baberShop\obj\Debug\baberShop.dll
 D:\HK2_2022-2023\DotNet\CK\baberShop\baberShop\obj\Debug\baberShop.pdb
+C:\Users\ASUS\source\repos\baberShop\baberShop\bin\EntityFramework.dll
+C:\Users\ASUS\source\repos\baberShop\baberShop\bin\EntityFramework.SqlServer.dll
+C:\Users\ASUS\source\repos\baberShop\baberShop\bin\EntityFramework.xml
+C:\Users\ASUS\source\repos\baberShop\baberShop\bin\EntityFramework.SqlServer.xml
