@@ -13,10 +13,19 @@ namespace baberShop
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+           
+            //home page
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "HomeBaberShop", action = "Index", id = UrlParameter.Optional }
+            );
+
+            //login
+            routes.MapRoute(
+                name: "Auth",
+                url: "{controller}/{action}",
+                new { controller = "Auth", action = "Login", id = UrlParameter.Optional }
             );
         }
     }
