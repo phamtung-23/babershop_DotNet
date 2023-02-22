@@ -202,13 +202,19 @@ strong {
   transition: all 0.3s;
   padding: 10px 20px;
 }
-.wrapper-btn{
-    width:100%;
-    display:flex;
-    justify-content:left;
+.custom-btn-lg {
+    color: var(--secondary-color);
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 1000;
+}
+.wrapper-btn {
+    width: 100%;
+    display: flex;
+    justify-content: left;
 }
 .btn-login {
-    width:135px;
     background-color: #c12828;
     border-radius: var(--border-radius-large);
     color: white;

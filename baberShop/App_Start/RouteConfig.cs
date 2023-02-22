@@ -24,9 +24,10 @@ namespace baberShop
             //login
             routes.MapRoute(
                 name: "Auth",
-                url: "{controller}/{action}",
+                url: "auth/{action}",
                 new { controller = "Auth", action = "Login", id = UrlParameter.Optional }
             );
+            
         }
     }
 }

@@ -188,7 +188,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 177px 130px 33px 95px;
+  padding: 150px 130px 120px 95px;
 }
 
 /*------------------------------------------------------------------
@@ -361,7 +361,7 @@ iframe {
 
 @media (max-width: 992px) {
   .wrap-login100 {
-    padding: 177px 90px 33px 85px;
+    padding: 60px 90px 33px 85px;
   }
 
   .login100-pic {
@@ -459,4 +459,10 @@ iframe {
     visibility: visible;
     opacity: 1;
   }
+}
+
+.linkHompage {
+	width: 100%;
+	color:white;
+	font-size:20px;
 }

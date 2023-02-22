@@ -354,6 +354,7 @@
     <Content Include="Views\HomeBaberShop\getContactAddress.cshtml" />
     <Content Include="Views\HomeBaberShop\getEmployee.cshtml" />
     <Content Include="Views\HomeBaberShop\getService.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
