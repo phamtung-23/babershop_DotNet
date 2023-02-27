@@ -21,10 +21,10 @@ namespace baberShop
                 defaults: new { controller = "HomeBaberShop", action = "Index", id = UrlParameter.Optional }
             );
 
-            //login
+            //login and register
             routes.MapRoute(
                 name: "Auth",
-                url: "auth/{action}",
+                url: "auth/{action}/{id}",
                 new { controller = "Auth", action = "Login", id = UrlParameter.Optional }
             );
             

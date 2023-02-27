@@ -76,5 +76,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="INFOUSERs">
+      <EntityTypeMapping TypeName="BARBERSHOPModel.INFOUSER">
+        <MappingFragment StoreEntitySet="INFOUSER">
+          <ScalarProperty Name="ADDRESS_USER" ColumnName="ADDRESS_USER" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="ID_INFO_USER" ColumnName="ID_INFO_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

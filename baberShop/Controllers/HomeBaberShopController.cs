@@ -62,5 +62,21 @@ namespace baberShop.Controllers
             return PartialView(v.ToList());
         }
 
+        public ActionResult profile()
+        {
+            if (Session["USERNAME"] != null)
+            {
+                var id = Int32.Parse(Session["ID"].ToString());
+                var v = from t in _db.BOOKINGs
+                        where t.ID_USER == id
+                        select t;
+                return View(v.ToList());
+            }
+            else
+            {
+                return Redirect("/auth/Login");
+            }
+        }
+
     }
 }

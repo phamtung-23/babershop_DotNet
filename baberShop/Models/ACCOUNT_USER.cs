@@ -18,6 +18,7 @@ namespace baberShop.Models
         public ACCOUNT_USER()
         {
             this.BOOKINGs = new HashSet<BOOKING>();
+            this.INFOUSERs = new HashSet<INFOUSER>();
         }
     
         public int ID_USER { get; set; }
@@ -28,5 +29,7 @@ namespace baberShop.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BOOKING> BOOKINGs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<INFOUSER> INFOUSERs { get; set; }
     }
 }

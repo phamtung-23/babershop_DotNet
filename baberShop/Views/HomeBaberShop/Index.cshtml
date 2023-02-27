@@ -9,7 +9,7 @@
     @if (Session["USERNAME"] != null)
     {
         <div class="wrapper-btn custom-btn-lg  d-flex justify-content-end align-items-center">
-            <a class="text-light" href="/profile">@Session["USERNAME"].ToString()</a>
+            <a class="text-light border border-warning p-1 rounded bg-danger"  href="/HomeBaberShop/profile/@Session["USERNAME"].ToString()">Xin chào: @Session["USERNAME"].ToString()</a>
             <a class=" smoothscroll text-danger ml-5 p-3" href="@Url.Action("Logout","Auth")">Log Out</a>
         </div>
     }

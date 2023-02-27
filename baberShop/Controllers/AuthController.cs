@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using baberShop.Models;
 using System.Web.UI;
 using System.Text;
+using System.Data.Entity;
 
 namespace baberShop.Controllers
 {
@@ -98,6 +99,71 @@ namespace baberShop.Controllers
             Session.Clear();//remove session
             return Redirect("/HomeBaberShop/Index");
         }
+
+        //fogot view
+        public ActionResult Forgot()
+        {
+            return View();
+        }
+        //handle check username forget
+        [HttpPost]
+        public ActionResult Forgot(ACCOUNT_USER _user)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = _db.ACCOUNT_USER.Where(s => s.USERNAME.Equals(_user.USERNAME));
+                var check = _db.ACCOUNT_USER.FirstOrDefault(s => s.USERNAME == _user.USERNAME);
+                if (_user.USERNAME == null)
+                {
+                    ViewBag.error = "Vui lòng điền đúng username của bạn!!";
+                    return View();
+                }
+                if (check != null)
+                {
+                    //ViewBag.error = data.FirstOrDefault().ID_USER;
+                    return RedirectToAction("/newPassword/"+ data.FirstOrDefault().ID_USER);
+                }
+                else
+                {
+
+                    ViewBag.error = "Không tìm thấy username của bạn!";
+
+                    return View();
+                }
+            }
+            return View();
+        }
+
+        //enter new password
+        public ActionResult NewPassword()
+        {
+            return View();
+        }
+        //handle new password
+        [HttpPost]
+        public ActionResult NewPassword(ACCOUNT_USER _user, int id)
+        {
+            if (ModelState.IsValid)
+            {
+                var check = _db.ACCOUNT_USER.FirstOrDefault(s => s.ID_USER == id);
+                if (check != null)
+                {
+                    ACCOUNT_USER userUpdate = new ACCOUNT_USER();
+                    userUpdate = _db.ACCOUNT_USER.Find(id);
+                    userUpdate.PASSWORD_USER = GetMD5(_user.PASSWORD_USER);
+                    _db.Entry(userUpdate).State = EntityState.Modified;
+                    _db.SaveChanges();
+                    ViewBag.success = "Cập nhật thành công";
+                    //return RedirectToAction("/login");
+                }else
+                {
+                    ViewBag.error = "Không tìm thấy user!!";
+                }
+                
+            }
+            return View();
+        }
+
         //create a string MD5
         public static string GetMD5(string str)
         {

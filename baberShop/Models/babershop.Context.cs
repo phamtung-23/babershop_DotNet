@@ -31,5 +31,6 @@ namespace baberShop.Models
         public virtual DbSet<MENU> MENUs { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<SERVICE_SHOP> SERVICE_SHOP { get; set; }
+        public virtual DbSet<INFOUSER> INFOUSERs { get; set; }
     }
 }

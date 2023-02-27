@@ -10,6 +10,7 @@
     <Property Name="STATUS_ACCOUNT" Type="Boolean" />
     <Property Name="CHECK_EMPLOYEE" Type="Boolean" />
     <NavigationProperty Name="BOOKINGs" Relationship="Self.FK_BOOKING_USER" FromRole="ACCOUNT_USER" ToRole="BOOKING" />
+    <NavigationProperty Name="INFOUSERs" Relationship="BARBERSHOPModel.FK_INFOUSER_ID_USER" FromRole="ACCOUNT_USER" ToRole="INFOUSER" />
   </EntityType>
   <EntityType Name="BOOKING">
     <Key>
@@ -112,5 +113,33 @@
       <End Role="SERVICE_SHOP" EntitySet="SERVICE_SHOP" />
       <End Role="BOOKING" EntitySet="BOOKINGs" />
     </AssociationSet>
+    <EntitySet Name="INFOUSERs" EntityType="BARBERSHOPModel.INFOUSER" />
+    <AssociationSet Name="FK_INFOUSER_ID_USER" Association="BARBERSHOPModel.FK_INFOUSER_ID_USER">
+      <End Role="ACCOUNT_USER" EntitySet="ACCOUNT_USER" />
+      <End Role="INFOUSER" EntitySet="INFOUSERs" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="INFOUSER">
+    <Key>
+      <PropertyRef Name="ID_INFO_USER" />
+    </Key>
+    <Property Name="ID_INFO_USER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_USER" Type="Int32" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS_USER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACCOUNT_USER" Relationship="BARBERSHOPModel.FK_INFOUSER_ID_USER" FromRole="INFOUSER" ToRole="ACCOUNT_USER" />
+  </EntityType>
+  <Association Name="FK_INFOUSER_ID_USER">
+    <End Type="BARBERSHOPModel.ACCOUNT_USER" Role="ACCOUNT_USER" Multiplicity="0..1" />
+    <End Type="BARBERSHOPModel.INFOUSER" Role="INFOUSER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT_USER">
+        <PropertyRef Name="ID_USER" />
+      </Principal>
+      <Dependent Role="INFOUSER">
+        <PropertyRef Name="ID_USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -13,6 +13,8 @@
         <EntityTypeShape EntityType="BARBERSHOPModel.SERVICE_SHOP" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <AssociationConnector Association="BARBERSHOPModel.FK_BOOKING_USER" ManuallyRouted="false" />
         <AssociationConnector Association="BARBERSHOPModel.FK_BOOKING_SERVICE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BARBERSHOPModel.INFOUSER" Width="1.5" PointX="3" PointY="8.375" />
+        <AssociationConnector Association="BARBERSHOPModel.FK_INFOUSER_ID_USER" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

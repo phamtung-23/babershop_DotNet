@@ -158,6 +158,9 @@
     <Compile Include="Models\INFOR_SHOP.cs">
       <DependentUpon>babershop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\INFOUSER.cs">
+      <DependentUpon>babershop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MENU.cs">
       <DependentUpon>babershop.tt</DependentUpon>
     </Compile>
@@ -176,6 +179,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cssLogin\main.css" />
     <Content Include="Content\cssLogin\util.css" />
+    <Content Include="Content\cssProfile\styles.css" />
     <Content Include="Content\css\bootstrap-icons.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\templatemo-barber-shop.css" />
@@ -327,6 +331,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jsLogin\main.js" />
+    <Content Include="Scripts\jsProfile\main.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\click-scroll.js" />
     <Content Include="Scripts\js\custom.js" />
@@ -356,6 +361,10 @@
     <Content Include="Views\HomeBaberShop\getService.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\HomeBaberShop\profile.cshtml" />
+    <Content Include="Views\Shared\Layout-profile.cshtml" />
+    <Content Include="Views\Auth\Forgot.cshtml" />
+    <Content Include="Views\Auth\NewPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
