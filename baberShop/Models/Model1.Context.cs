@@ -13,10 +13,10 @@ namespace baberShop.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BARBERSHOPEntities1 : DbContext
+    public partial class BARBERSHOPEntities2 : DbContext
     {
-        public BARBERSHOPEntities1()
-            : base("name=BARBERSHOPEntities1")
+        public BARBERSHOPEntities2()
+            : base("name=BARBERSHOPEntities2")
         {
         }
     
@@ -28,9 +28,9 @@ namespace baberShop.Models
         public virtual DbSet<ACCOUNT_USER> ACCOUNT_USER { get; set; }
         public virtual DbSet<BOOKING> BOOKINGs { get; set; }
         public virtual DbSet<INFOR_SHOP> INFOR_SHOP { get; set; }
+        public virtual DbSet<INFOUSER> INFOUSERs { get; set; }
         public virtual DbSet<MENU> MENUs { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<SERVICE_SHOP> SERVICE_SHOP { get; set; }
-        public virtual DbSet<INFOUSER> INFOUSERs { get; set; }
     }
 }

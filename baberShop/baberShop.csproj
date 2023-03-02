@@ -135,40 +135,40 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ACCOUNT_USER.cs">
-      <DependentUpon>babershop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\babershop.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>babershop.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\babershop.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>babershop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\babershop.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>babershop.edmx</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BOOKING.cs">
-      <DependentUpon>babershop.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\INFOR_SHOP.cs">
-      <DependentUpon>babershop.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\INFOUSER.cs">
-      <DependentUpon>babershop.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MENU.cs">
-      <DependentUpon>babershop.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\NHANVIEN.cs">
-      <DependentUpon>babershop.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SERVICE_SHOP.cs">
-      <DependentUpon>babershop.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -177,6 +177,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cssDetailEmployee\styles.css" />
     <Content Include="Content\cssLogin\main.css" />
     <Content Include="Content\cssLogin\util.css" />
     <Content Include="Content\cssProfile\styles.css" />
@@ -224,27 +225,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\babershop.Context.tt">
+    <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>babershop.edmx</DependentUpon>
-      <LastGenOutput>babershop.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\babershop.tt">
+    <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>babershop.edmx</DependentUpon>
-      <LastGenOutput>babershop.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontWeb\bootstrap-icons.woff" />
     <Content Include="fonts\fontWeb\bootstrap-icons.woff2" />
-    <EntityDeploy Include="Models\babershop.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>babershop.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\babershop.edmx.diagram">
-      <DependentUpon>babershop.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css.map" />
@@ -320,6 +314,13 @@
     <Content Include="fonts\fontsLogin\poppins\Poppins-SemiBoldItalic.ttf" />
     <Content Include="fonts\fontsLogin\poppins\Poppins-Thin.ttf" />
     <Content Include="fonts\fontsLogin\poppins\Poppins-ThinItalic.ttf" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -365,6 +366,9 @@
     <Content Include="Views\Shared\Layout-profile.cshtml" />
     <Content Include="Views\Auth\Forgot.cshtml" />
     <Content Include="Views\Auth\NewPassword.cshtml" />
+    <Content Include="Views\HomeBaberShop\EmployeeDetail.cshtml" />
+    <Content Include="Views\HomeBaberShop\ServiceDetail.cshtml" />
+    <Content Include="Views\HomeBaberShop\getFormBookSeat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,7 +20,7 @@
 <body>
     <div class="container-profile">
         <figure class="snip1515 col-lg-4">
-            <div class="profile-image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample47.jpg" alt="sample47" /></div>
+            <div class="profile-image"><img src="https://i.pinimg.com/564x/ff/31/e3/ff31e34ab5108f7397e101f1e87f8c50.jpg" alt="sample47" /></div>
             <figcaption>
                 <h3>@Session["USERNAME"].ToString()</h3>
                 <h4>Cusumer</h4>
@@ -43,7 +43,8 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Tên dịch vụ</th>
+                        <th scope="col">Tên</th>
+                        <th scope="col">SDT</th>
                         <th scope="col">Thời gian</th>
                         <th scope="col">Ngày</th>
                         <th scope="col">Trang thái</th>
@@ -52,21 +53,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(var item in Model)
-            {
+                    
+                    @foreach (var item in Model)
+                    {
                     <tr>
-                        <td>@item.COMMENT</td>
+                        <td>@item.NAME_BOOK</td>
+                        <td>@item.PHONE_BOOK</td>
                         <td>@item.TIME_BOOKING</td>
                         <td>@item.DATE_BOOKING</td>
-                        <td><span class="badge badge-success">Đặt thành công</span></td>
+                        <td><span class="badge badge-success p-2">Đặt thành công</span></td>
                         <td>
-                            <button type="button" class="btn btn-success">Đánh giá</button>
                             <button type="button" class="btn btn-danger">Hủy</button>
                         </td>
                     </tr>
-            }
+                    }
                     
-                   
+
                 </tbody>
             </table>
         </div>

@@ -15,7 +15,7 @@ namespace baberShop.Controllers
     public class AuthController : Controller
     {
         // GET: Auth
-        BARBERSHOPEntities1 _db = new BARBERSHOPEntities1();
+        BARBERSHOPEntities2 _db = new BARBERSHOPEntities2();
         public ActionResult Login()
         {
             return View();

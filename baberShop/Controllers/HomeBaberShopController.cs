@@ -10,7 +10,7 @@ namespace baberShop.Controllers
     public class HomeBaberShopController : Controller
 
     {
-        BARBERSHOPEntities1 _db = new BARBERSHOPEntities1();
+        BARBERSHOPEntities2 _db = new BARBERSHOPEntities2();
         // GET: HomeBaberShop
         public ActionResult Index()
         {
@@ -62,21 +62,57 @@ namespace baberShop.Controllers
             return PartialView(v.ToList());
         }
 
+        public ActionResult getFormBookSeat()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult BookSeat()
+        {
+            String name = Request.Form["bb-name"];
+            String phone = Request.Form["bb-phone"];
+            ViewBag.Success = name;
+            return View();
+        }
+
         public ActionResult profile()
         {
             if (Session["USERNAME"] != null)
             {
                 var id = Int32.Parse(Session["ID"].ToString());
-                var v = from t in _db.BOOKINGs
-                        where t.ID_USER == id
-                        select t;
-                return View(v.ToList());
+                
+                
+                var bookingList = from t in _db.BOOKINGs
+                                    where t.ID_USER == id
+                                    select t;
+                return View(bookingList.ToList());
             }
             else
             {
                 return Redirect("/auth/Login");
             }
         }
+
+        public ActionResult EmployeeDetail(int id)
+        {
+            
+            var profileEmployee = from t in _db.NHANVIENs
+                                  where t.ID_NHANVIEN == id
+                                  select t;
+            return View(profileEmployee);
+        }
+
+        public ActionResult ServiceDetail(int id)
+        {
+
+            var serviceDetail = from t in _db.SERVICE_SHOP
+                                  where t.ID_SERVICE == id
+                                  select t;
+            return View(serviceDetail);
+        }
+
 
     }
 }

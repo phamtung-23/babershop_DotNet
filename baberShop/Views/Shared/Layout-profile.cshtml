@@ -48,6 +48,27 @@
             </nav>
 
             <div class="col-md-9 ms-sm-auto col-lg-10 p-0">
+                <div>
+                    <ul class="nav nav_color justify-content-between">
+                        <li class="nav-item">
+                            <a class="text-light fw-bold m-2" href="/">Trang chủ</a>
+                        </li>
+                        @if (Session["USERNAME"] == null)
+                        {
+                            <li class="nav-item">
+                                <a class="btn btn-danger rounded m-2" href="/auth/login">Login</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item d-flex justify-content-between">
+                                <a class="nav-link text-light fw-bold" href="/HomeBaberShop/profile">@Session["USERNAME"]</a>
+                                <a class="btn btn-danger rounded m-2" href="/auth/logout">Đăng xuất</a>
+                            </li>
+                            
+                        }
+                    </ul>
+                </div>
                 @RenderBody()
             </div>
         </div>
