@@ -20,11 +20,11 @@
             <PropertyRef Name="ID_BOOKING" />
           </Key>
           <Property Name="ID_BOOKING" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_SERVICE" Type="int" />
           <Property Name="ID_USER" Type="int" />
-          <Property Name="NAME_BOOK" Type="nvarchar" MaxLength="100" />
-          <Property Name="PHONE_BOOK" Type="nvarchar" MaxLength="20" />
           <Property Name="DATE_BOOKING" Type="date" />
           <Property Name="TIME_BOOKING" Type="time" Precision="7" />
+          <Property Name="SUM_PRICE" Type="int" />
           <Property Name="COMMENT" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="INFOR_SHOP">
@@ -84,6 +84,18 @@
           <Property Name="DESCRIPSTION" Type="nvarchar" MaxLength="200" />
           <Property Name="STATUS_SERVICE" Type="bit" />
         </EntityType>
+        <Association Name="FK_BOOKING_SERVICE">
+          <End Role="SERVICE_SHOP" Type="Self.SERVICE_SHOP" Multiplicity="0..1" />
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICE_SHOP">
+              <PropertyRef Name="ID_SERVICE" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="ID_SERVICE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BOOKING_USER">
           <End Role="ACCOUNT_USER" Type="Self.ACCOUNT_USER" Multiplicity="0..1" />
           <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
@@ -116,6 +128,10 @@
           <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SERVICE_SHOP" EntityType="Self.SERVICE_SHOP" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BOOKING_SERVICE" Association="Self.FK_BOOKING_SERVICE">
+            <End Role="SERVICE_SHOP" EntitySet="SERVICE_SHOP" />
+            <End Role="BOOKING" EntitySet="BOOKING" />
+          </AssociationSet>
           <AssociationSet Name="FK_BOOKING_USER" Association="Self.FK_BOOKING_USER">
             <End Role="ACCOUNT_USER" EntitySet="ACCOUNT_USER" />
             <End Role="BOOKING" EntitySet="BOOKING" />
@@ -147,13 +163,14 @@
             <PropertyRef Name="ID_BOOKING" />
           </Key>
           <Property Name="ID_BOOKING" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_SERVICE" Type="Int32" />
           <Property Name="ID_USER" Type="Int32" />
-          <Property Name="NAME_BOOK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PHONE_BOOK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="DATE_BOOKING" Type="DateTime" Precision="0" />
           <Property Name="TIME_BOOKING" Type="Time" Precision="7" />
+          <Property Name="SUM_PRICE" Type="Int32" />
           <Property Name="COMMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ACCOUNT_USER" Relationship="Self.FK_BOOKING_USER" FromRole="BOOKING" ToRole="ACCOUNT_USER" />
+          <NavigationProperty Name="SERVICE_SHOP" Relationship="Self.FK_BOOKING_SERVICE" FromRole="BOOKING" ToRole="SERVICE_SHOP" />
         </EntityType>
         <EntityType Name="INFOR_SHOP">
           <Key>
@@ -212,6 +229,7 @@
           <Property Name="IMG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DESCRIPSTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="STATUS_SERVICE" Type="Boolean" />
+          <NavigationProperty Name="BOOKINGs" Relationship="Self.FK_BOOKING_SERVICE" FromRole="SERVICE_SHOP" ToRole="BOOKING" />
         </EntityType>
         <Association Name="FK_BOOKING_USER">
           <End Role="ACCOUNT_USER" Type="Self.ACCOUNT_USER" Multiplicity="0..1" />
@@ -237,7 +255,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BARBERSHOPEntities2" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_BOOKING_SERVICE">
+          <End Role="SERVICE_SHOP" Type="Self.SERVICE_SHOP" Multiplicity="0..1" />
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICE_SHOP">
+              <PropertyRef Name="ID_SERVICE" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="ID_SERVICE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BARBERSHOPEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ACCOUNT_USER" EntityType="Self.ACCOUNT_USER" />
           <EntitySet Name="BOOKINGs" EntityType="Self.BOOKING" />
           <EntitySet Name="INFOR_SHOP" EntityType="Self.INFOR_SHOP" />
@@ -253,13 +283,17 @@
             <End Role="ACCOUNT_USER" EntitySet="ACCOUNT_USER" />
             <End Role="INFOUSER" EntitySet="INFOUSERs" />
           </AssociationSet>
+          <AssociationSet Name="FK_BOOKING_SERVICE" Association="Self.FK_BOOKING_SERVICE">
+            <End Role="SERVICE_SHOP" EntitySet="SERVICE_SHOP" />
+            <End Role="BOOKING" EntitySet="BOOKINGs" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BARBERSHOPModelStoreContainer" CdmEntityContainer="BARBERSHOPEntities2">
+        <EntityContainerMapping StorageEntityContainer="BARBERSHOPModelStoreContainer" CdmEntityContainer="BARBERSHOPEntities4">
           <EntitySetMapping Name="ACCOUNT_USER">
             <EntityTypeMapping TypeName="BARBERSHOPModel.ACCOUNT_USER">
               <MappingFragment StoreEntitySet="ACCOUNT_USER">
@@ -275,11 +309,11 @@
             <EntityTypeMapping TypeName="BARBERSHOPModel.BOOKING">
               <MappingFragment StoreEntitySet="BOOKING">
                 <ScalarProperty Name="ID_BOOKING" ColumnName="ID_BOOKING" />
+                <ScalarProperty Name="ID_SERVICE" ColumnName="ID_SERVICE" />
                 <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
-                <ScalarProperty Name="NAME_BOOK" ColumnName="NAME_BOOK" />
-                <ScalarProperty Name="PHONE_BOOK" ColumnName="PHONE_BOOK" />
                 <ScalarProperty Name="DATE_BOOKING" ColumnName="DATE_BOOKING" />
                 <ScalarProperty Name="TIME_BOOKING" ColumnName="TIME_BOOKING" />
+                <ScalarProperty Name="SUM_PRICE" ColumnName="SUM_PRICE" />
                 <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
               </MappingFragment>
             </EntityTypeMapping>

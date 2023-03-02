@@ -17,13 +17,14 @@
       <PropertyRef Name="ID_BOOKING" />
     </Key>
     <Property Name="ID_BOOKING" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_SERVICE" Type="Int32" />
     <Property Name="ID_USER" Type="Int32" />
-    <Property Name="NAME_BOOK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="PHONE_BOOK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="DATE_BOOKING" Type="DateTime" Precision="0" />
     <Property Name="TIME_BOOKING" Type="Time" Precision="7" />
+    <Property Name="SUM_PRICE" Type="Int32" />
     <Property Name="COMMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ACCOUNT_USER" Relationship="Self.FK_BOOKING_USER" FromRole="BOOKING" ToRole="ACCOUNT_USER" />
+    <NavigationProperty Name="SERVICE_SHOP" Relationship="Self.FK_BOOKING_SERVICE" FromRole="BOOKING" ToRole="SERVICE_SHOP" />
   </EntityType>
   <EntityType Name="INFOR_SHOP">
     <Key>
@@ -82,6 +83,7 @@
     <Property Name="IMG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DESCRIPSTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="STATUS_SERVICE" Type="Boolean" />
+    <NavigationProperty Name="BOOKINGs" Relationship="Self.FK_BOOKING_SERVICE" FromRole="SERVICE_SHOP" ToRole="BOOKING" />
   </EntityType>
   <Association Name="FK_BOOKING_USER">
     <End Role="ACCOUNT_USER" Type="Self.ACCOUNT_USER" Multiplicity="0..1" />
@@ -107,7 +109,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="BARBERSHOPEntities2" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK_BOOKING_SERVICE">
+    <End Role="SERVICE_SHOP" Type="Self.SERVICE_SHOP" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICE_SHOP">
+        <PropertyRef Name="ID_SERVICE" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="ID_SERVICE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BARBERSHOPEntities4" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ACCOUNT_USER" EntityType="Self.ACCOUNT_USER" />
     <EntitySet Name="BOOKINGs" EntityType="Self.BOOKING" />
     <EntitySet Name="INFOR_SHOP" EntityType="Self.INFOR_SHOP" />
@@ -122,6 +136,10 @@
     <AssociationSet Name="FK_INFOUSER_ID_USER" Association="Self.FK_INFOUSER_ID_USER">
       <End Role="ACCOUNT_USER" EntitySet="ACCOUNT_USER" />
       <End Role="INFOUSER" EntitySet="INFOUSERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BOOKING_SERVICE" Association="Self.FK_BOOKING_SERVICE">
+      <End Role="SERVICE_SHOP" EntitySet="SERVICE_SHOP" />
+      <End Role="BOOKING" EntitySet="BOOKINGs" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

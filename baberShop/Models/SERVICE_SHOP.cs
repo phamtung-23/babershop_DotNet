@@ -14,11 +14,20 @@ namespace baberShop.Models
     
     public partial class SERVICE_SHOP
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SERVICE_SHOP()
+        {
+            this.BOOKINGs = new HashSet<BOOKING>();
+        }
+    
         public int ID_SERVICE { get; set; }
         public string NAME_SERVICE { get; set; }
         public Nullable<int> PRICE { get; set; }
         public string IMG { get; set; }
         public string DESCRIPSTION { get; set; }
         public Nullable<bool> STATUS_SERVICE { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BOOKING> BOOKINGs { get; set; }
     }
 }

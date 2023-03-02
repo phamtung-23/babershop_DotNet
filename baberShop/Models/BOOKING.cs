@@ -15,13 +15,14 @@ namespace baberShop.Models
     public partial class BOOKING
     {
         public int ID_BOOKING { get; set; }
+        public Nullable<int> ID_SERVICE { get; set; }
         public Nullable<int> ID_USER { get; set; }
-        public string NAME_BOOK { get; set; }
-        public string PHONE_BOOK { get; set; }
         public Nullable<System.DateTime> DATE_BOOKING { get; set; }
         public Nullable<System.TimeSpan> TIME_BOOKING { get; set; }
+        public Nullable<int> SUM_PRICE { get; set; }
         public string COMMENT { get; set; }
     
         public virtual ACCOUNT_USER ACCOUNT_USER { get; set; }
+        public virtual SERVICE_SHOP SERVICE_SHOP { get; set; }
     }
 }

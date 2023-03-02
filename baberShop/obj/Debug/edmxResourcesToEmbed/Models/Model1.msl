@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BARBERSHOPModelStoreContainer" CdmEntityContainer="BARBERSHOPEntities2">
+  <EntityContainerMapping StorageEntityContainer="BARBERSHOPModelStoreContainer" CdmEntityContainer="BARBERSHOPEntities4">
     <EntitySetMapping Name="ACCOUNT_USER">
       <EntityTypeMapping TypeName="BARBERSHOPModel.ACCOUNT_USER">
         <MappingFragment StoreEntitySet="ACCOUNT_USER">
@@ -16,11 +16,11 @@
       <EntityTypeMapping TypeName="BARBERSHOPModel.BOOKING">
         <MappingFragment StoreEntitySet="BOOKING">
           <ScalarProperty Name="ID_BOOKING" ColumnName="ID_BOOKING" />
+          <ScalarProperty Name="ID_SERVICE" ColumnName="ID_SERVICE" />
           <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
-          <ScalarProperty Name="NAME_BOOK" ColumnName="NAME_BOOK" />
-          <ScalarProperty Name="PHONE_BOOK" ColumnName="PHONE_BOOK" />
           <ScalarProperty Name="DATE_BOOKING" ColumnName="DATE_BOOKING" />
           <ScalarProperty Name="TIME_BOOKING" ColumnName="TIME_BOOKING" />
+          <ScalarProperty Name="SUM_PRICE" ColumnName="SUM_PRICE" />
           <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
         </MappingFragment>
       </EntityTypeMapping>
