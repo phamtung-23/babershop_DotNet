@@ -23,8 +23,8 @@
     <Property Name="DATE_BOOKING" Type="DateTime" Precision="0" />
     <Property Name="TIME_BOOKING" Type="Time" Precision="7" />
     <Property Name="COMMENT" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ACCOUNT_USER" Relationship="Self.FK_BOOKING_USER" FromRole="BOOKING" ToRole="ACCOUNT_USER" />
     <Property Name="TRANGTHAI" Type="Int32" />
+    <NavigationProperty Name="ACCOUNT_USER" Relationship="Self.FK_BOOKING_USER" FromRole="BOOKING" ToRole="ACCOUNT_USER" />
   </EntityType>
   <EntityType Name="INFOR_SHOP">
     <Key>
@@ -45,12 +45,12 @@
     </Key>
     <Property Name="ID_INFO_USER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ID_USER" Type="Int32" />
+    <Property Name="AVT_USER" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="PHONE" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
     <Property Name="ADDRESS_USER" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ACCOUNT_USER" Relationship="Self.FK_INFOUSER_ID_USER" FromRole="INFOUSER" ToRole="ACCOUNT_USER" />
-    <Property Name="AVT_USER" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="LINK_FB_USER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACCOUNT_USER" Relationship="Self.FK_INFOUSER_ID_USER" FromRole="INFOUSER" ToRole="ACCOUNT_USER" />
   </EntityType>
   <EntityType Name="MENU">
     <Key>
@@ -111,7 +111,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="BARBERSHOPEntities7" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="BARBERSHOPEntities8" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ACCOUNT_USER" EntityType="Self.ACCOUNT_USER" />
     <EntitySet Name="BOOKINGs" EntityType="Self.BOOKING" />
     <EntitySet Name="INFOR_SHOP" EntityType="Self.INFOR_SHOP" />

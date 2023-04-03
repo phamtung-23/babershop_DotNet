@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BARBERSHOPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BARBERSHOPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACCOUNT_USER">
           <Key>
             <PropertyRef Name="ID_USER" />
@@ -129,7 +129,8 @@
             <End Role="INFOUSER" EntitySet="INFOUSER" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BARBERSHOPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -156,8 +157,8 @@
           <Property Name="DATE_BOOKING" Type="DateTime" Precision="0" />
           <Property Name="TIME_BOOKING" Type="Time" Precision="7" />
           <Property Name="COMMENT" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ACCOUNT_USER" Relationship="Self.FK_BOOKING_USER" FromRole="BOOKING" ToRole="ACCOUNT_USER" />
           <Property Name="TRANGTHAI" Type="Int32" />
+          <NavigationProperty Name="ACCOUNT_USER" Relationship="Self.FK_BOOKING_USER" FromRole="BOOKING" ToRole="ACCOUNT_USER" />
         </EntityType>
         <EntityType Name="INFOR_SHOP">
           <Key>
@@ -178,12 +179,12 @@
           </Key>
           <Property Name="ID_INFO_USER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_USER" Type="Int32" />
+          <Property Name="AVT_USER" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PHONE" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
           <Property Name="ADDRESS_USER" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ACCOUNT_USER" Relationship="Self.FK_INFOUSER_ID_USER" FromRole="INFOUSER" ToRole="ACCOUNT_USER" />
-          <Property Name="AVT_USER" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="LINK_FB_USER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ACCOUNT_USER" Relationship="Self.FK_INFOUSER_ID_USER" FromRole="INFOUSER" ToRole="ACCOUNT_USER" />
         </EntityType>
         <EntityType Name="MENU">
           <Key>
@@ -244,7 +245,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BARBERSHOPEntities7" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BARBERSHOPEntities8" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ACCOUNT_USER" EntityType="Self.ACCOUNT_USER" />
           <EntitySet Name="BOOKINGs" EntityType="Self.BOOKING" />
           <EntitySet Name="INFOR_SHOP" EntityType="Self.INFOR_SHOP" />
@@ -266,7 +267,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BARBERSHOPModelStoreContainer" CdmEntityContainer="BARBERSHOPEntities7">
+        <EntityContainerMapping StorageEntityContainer="BARBERSHOPModelStoreContainer" CdmEntityContainer="BARBERSHOPEntities8">
           <EntitySetMapping Name="ACCOUNT_USER">
             <EntityTypeMapping TypeName="BARBERSHOPModel.ACCOUNT_USER">
               <MappingFragment StoreEntitySet="ACCOUNT_USER">
@@ -281,7 +282,6 @@
           <EntitySetMapping Name="BOOKINGs">
             <EntityTypeMapping TypeName="BARBERSHOPModel.BOOKING">
               <MappingFragment StoreEntitySet="BOOKING">
-                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
                 <ScalarProperty Name="ID_BOOKING" ColumnName="ID_BOOKING" />
                 <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
                 <ScalarProperty Name="NAME_BOOK" ColumnName="NAME_BOOK" />
@@ -289,6 +289,7 @@
                 <ScalarProperty Name="DATE_BOOKING" ColumnName="DATE_BOOKING" />
                 <ScalarProperty Name="TIME_BOOKING" ColumnName="TIME_BOOKING" />
                 <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -309,13 +310,13 @@
           <EntitySetMapping Name="INFOUSERs">
             <EntityTypeMapping TypeName="BARBERSHOPModel.INFOUSER">
               <MappingFragment StoreEntitySet="INFOUSER">
-                <ScalarProperty Name="LINK_FB_USER" ColumnName="LINK_FB_USER" />
-                <ScalarProperty Name="AVT_USER" ColumnName="AVT_USER" />
                 <ScalarProperty Name="ID_INFO_USER" ColumnName="ID_INFO_USER" />
                 <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="AVT_USER" ColumnName="AVT_USER" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="PHONE" ColumnName="PHONE" />
                 <ScalarProperty Name="ADDRESS_USER" ColumnName="ADDRESS_USER" />
+                <ScalarProperty Name="LINK_FB_USER" ColumnName="LINK_FB_USER" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

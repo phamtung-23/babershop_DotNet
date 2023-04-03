@@ -12,7 +12,7 @@ namespace baberShop.Controllers
     public class HomeBaberShopController : Controller
 
     {
-        BARBERSHOPEntities7 _db = new BARBERSHOPEntities7();
+        BARBERSHOPEntities8 _db = new BARBERSHOPEntities8();
         // GET: HomeBaberShop
         public ActionResult Index()
         {
