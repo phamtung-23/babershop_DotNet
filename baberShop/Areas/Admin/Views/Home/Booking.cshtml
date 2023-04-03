@@ -1,7 +1,7 @@
-﻿@model IEnumerable<baberShop.Models.ACCOUNT_USER>
+﻿@model IEnumerable<baberShop.Models.BOOKING>
 
 @{
-    ViewBag.Tittle = "Index";
+    ViewBag.Tittle = "Booking";
     Layout = "";
 }
 
@@ -30,7 +30,7 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <li class="sidebar-list-item active">
+                <li class="sidebar-list-item ">
                     <a href="/Admin/Home/Index">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
                         <span>User</span>
@@ -42,7 +42,7 @@
                         <span>Service</span>
                     </a>
                 </li>
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item active">
                     <a href="/Admin/Home/Booking">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12" /><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /></svg>
                         <span>Booking list</span>
@@ -75,7 +75,7 @@
             <div class="app-content-header">
                 <h1 class="app-content-headerText">ADMIN</h1>
 
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addUserModal">Add</button>
+                <button type="button" class="btn btn-success">Add</button>
             </div>
             <div class="app-content-actions">
                 <div class="app-content-actions-wrapper">
@@ -100,93 +100,39 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">USERNAME</th>
-                                <th scope="col">STATUS</th>
-                                <th scope="col">EMPLOYEE</th>
-                                <th scope="col">PASSWORD</th>
+                                <th scope="col">ID_SERVICE</th>
+                                <th scope="col">ID_USER</th>
+                                <th scope="col">DATE</th>
+                                <th scope="col">TIME</th>
+                                <th scope="col">TOTAL</th>
+                                <th scope="col">COMMENT</th>
                                 <th scope="col">ACCTION</th>
                             </tr>
                         </thead>
                         <tbody>
                             @{
-                                foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>@item.ID_USER</td>
-                                        <td>@item.USERNAME</td>
-                                        <td>@item.STATUS_ACCOUNT</td>
-                                        <td>@item.CHECK_EMPLOYEE</td>
-                                        <td>@item.PASSWORD_USER</td>
-                                        <td>
-                                            <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" >Edit</button>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.ID_BOOKING</td>
+                                            <td>@item.ID_SERVICE</td>
+                                            <td>@item.ID_USER</td>
+                                            <td>@item.DATE_BOOKING<td>
+                                            <td>@item.TIME_BOOKING</td>
+                                            <td>@item.SUM_PRICE</td>
+                                            <td>@item.COMMENT</td>
+                                            <td>
+                                                <button class="btn btn-warning">Edit</button>
+                                                <button class="btn btn-danger">Delete</button>
+                                            </td>
+                                        </tr>
+                                    }
                                 }
-                            }
+                           
 
 
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
                 </div>
             </div>
         </div>

@@ -24,7 +24,12 @@ namespace baberShop.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
+        internal object Find(object iD_USER)
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual DbSet<ACCOUNT_USER> ACCOUNT_USER { get; set; }
         public virtual DbSet<BOOKING> BOOKINGs { get; set; }
         public virtual DbSet<INFOR_SHOP> INFOR_SHOP { get; set; }

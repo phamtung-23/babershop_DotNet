@@ -27,7 +27,14 @@ namespace baberShop
                 url: "auth/{action}/{id}",
                 new { controller = "Auth", action = "Login", id = UrlParameter.Optional }
             );
-            
+
+            //admin page
+            routes.MapRoute(
+                name: "Admin",
+                url: "admin/{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
         }
     }
 }
