@@ -2,12 +2,17 @@
 
 
 <ul class="nav flex-column">
-    @foreach (var item in Model)
-    {
-        <li class="nav-item">
-            <a class="nav-link click-scroll" href="#section_1">@item.NAME_MENU</a>
-        </li>
+    @{
+            var index = 1;
+            foreach (var item in Model)
+            {
+            <li class="nav-item">
+                <a class="nav-link click-scroll" href="#section_@index">@item.NAME_MENU</a>
+            </li>
+            index++;
+        }
     }
+   
 
 
 </ul>

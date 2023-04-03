@@ -22,5 +22,6 @@ namespace baberShop.Models
         public string PHONE { get; set; }
         public string LINK_FB { get; set; }
         public string LINK_INSTAGRAM { get; set; }
+        public string DESCRIPSTION_NV { get; set; }
     }
 }

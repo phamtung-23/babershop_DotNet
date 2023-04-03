@@ -19,6 +19,8 @@ namespace baberShop.Models
         public string EMAIL { get; set; }
         public string PHONE { get; set; }
         public string ADDRESS_USER { get; set; }
+        public string AVT_USER { get; set; }
+        public string LINK_FB_USER { get; set; }
     
         public virtual ACCOUNT_USER ACCOUNT_USER { get; set; }
     }

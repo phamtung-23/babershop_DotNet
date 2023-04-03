@@ -17,49 +17,44 @@
 </head>
 <body>
     <div class="container">
-        <section class="product">
-            
-            <div class="product__info">
+        <section class="product row">
+            <div class="product__info col-lg-6 col-sm-12">
                 <div class="title">Thông tin chi tiết - Nhân viên</div>
                 <div class="title">
                     <h1>@Model.FirstOrDefault().NAME_NHANVIEN</h1>
-                    <span>Gender: @Model.FirstOrDefault().SEX</span>
+                    <span>Giới tính: @Model.FirstOrDefault().SEX</span>
                 </div>
                 <div class="price">
-                    Skill:  <span>@Model.FirstOrDefault().SKILL</span>
+                    Ký năng:  <span>@Model.FirstOrDefault().SKILL</span>
                 </div>
                 <div class="variant">
                     <h3>Liên hệ: </h3>
-                    <ul>
+                    <ul class="d-flex justify-content-around">
                         <li>
                             <a href="@Model.FirstOrDefault().LINK_FB">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="" />
+                                <img class="img-contact" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="" />
                             </a>
                         </li>
                         <li>
                             <a href="@Model.FirstOrDefault().LINK_INSTAGRAM">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1025px-Instagram-Icon.png" alt="" />
+                                <img class="img-contact" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1025px-Instagram-Icon.png" alt="" />
                             </a>
                         </li>
                         <li>
                             <a href="@Model.FirstOrDefault().PHONE">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-phone.svg/1200px-Circle-icons-phone.svg.png" alt="" />
+                                <img class="img-contact" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-phone.svg/1200px-Circle-icons-phone.svg.png" alt="" />
                             </a>
                         </li>
-                        
                     </ul>
                 </div>
                 <div class="description">
                     <h3>Mô tả</h3>
                     <ul>
-                        <li>Apples are nutricious</li>
-                        <li>Apples may be good for weight loss</li>
-                        <li>Apples may be good for bone health</li>
-                        <li>They're linked to a lowest risk of diabetes</li>
+                        <li class="description-content">@Model.FirstOrDefault().DESCRIPSTION_NV</li>
                     </ul>
                 </div>
             </div>
-            <div class="product__photo">
+            <div class="product__photo col-lg-6 col-sm-12">
                 <div class="photo-container">
                     <div class="photo-main">
                         <img width="600" src="@Model.FirstOrDefault().AVT" alt="green apple slice">

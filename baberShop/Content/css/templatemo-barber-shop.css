@@ -459,15 +459,16 @@ strong {
 }
 
 .team-info {
-  background: var(--white-color);
-  border-radius: var(--border-radius-large);
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: 10px 40px;
-  padding: 10px 17px 10px 20px;
-  transition: all 0.3s ease;
+    width: 100%;
+    background: var(--white-color);
+    border-radius: var(--border-radius-large);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 10px 40px;
+    padding: 10px 17px 10px 20px;
+    transition: all 0.3s ease;
 }
 
 
@@ -871,3 +872,7 @@ strong {
     background-color: var(--primary-color);
 }
 
+
+.description-content{
+    list-style:none;
+}

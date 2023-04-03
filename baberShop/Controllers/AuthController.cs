@@ -15,10 +15,17 @@ namespace baberShop.Controllers
     public class AuthController : Controller
     {
         // GET: Auth
-        BARBERSHOPEntities4 _db = new BARBERSHOPEntities4();
+         BARBERSHOPEntities7 _db = new BARBERSHOPEntities7();
         public ActionResult Login()
         {
-            return View();
+            if (Session["USERNAME"]!=null)
+            {
+               return Redirect("/");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpPost]
@@ -38,6 +45,8 @@ namespace baberShop.Controllers
                 if (data.Count() > 0)
                 {
                     //add session
+                    
+
                     Session["USERNAME"] = data.FirstOrDefault().USERNAME ;
                     Session["ID"] = data.FirstOrDefault().ID_USER;
                     Session["CHECK_EMPLOYEE"] = data.FirstOrDefault().CHECK_EMPLOYEE;
@@ -80,17 +89,11 @@ namespace baberShop.Controllers
                 }
                 else
                 {
-                    
                     ViewBag.error = "Username đã tồn tại!!!";
-
                     return View();
                 }
-
-
             }
             return View();
-
-
         }
 
         //Logout

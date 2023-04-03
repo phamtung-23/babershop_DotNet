@@ -16,9 +16,9 @@
 </head>
 <body>
     <div class="container">
-        <section class="product">
+        <section class="product row">
 
-            <div class="product__info">
+            <div class="product__info col-lg-6 col-sm-12">
                 <div class="title mb-2">Thông tin chi tiết - Service</div>
                 <div class="title">
                     <h1>@Model.FirstOrDefault().NAME_SERVICE</h1>
@@ -35,7 +35,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="product__photo">
+            <div class="product__photo col-lg-6 col-sm-12">
                 <div class="photo-container">
                     <div class="photo-main">
                         <img width="600" src="@Model.FirstOrDefault().IMG" alt="green apple slice">

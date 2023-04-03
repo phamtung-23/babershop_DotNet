@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BARBERSHOPModelStoreContainer" CdmEntityContainer="BARBERSHOPEntities4">
+  <EntityContainerMapping StorageEntityContainer="BARBERSHOPModelStoreContainer" CdmEntityContainer="BARBERSHOPEntities7">
     <EntitySetMapping Name="ACCOUNT_USER">
       <EntityTypeMapping TypeName="BARBERSHOPModel.ACCOUNT_USER">
         <MappingFragment StoreEntitySet="ACCOUNT_USER">
@@ -15,12 +15,13 @@
     <EntitySetMapping Name="BOOKINGs">
       <EntityTypeMapping TypeName="BARBERSHOPModel.BOOKING">
         <MappingFragment StoreEntitySet="BOOKING">
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
           <ScalarProperty Name="ID_BOOKING" ColumnName="ID_BOOKING" />
-          <ScalarProperty Name="ID_SERVICE" ColumnName="ID_SERVICE" />
           <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="NAME_BOOK" ColumnName="NAME_BOOK" />
+          <ScalarProperty Name="PHONE_BOOK" ColumnName="PHONE_BOOK" />
           <ScalarProperty Name="DATE_BOOKING" ColumnName="DATE_BOOKING" />
           <ScalarProperty Name="TIME_BOOKING" ColumnName="TIME_BOOKING" />
-          <ScalarProperty Name="SUM_PRICE" ColumnName="SUM_PRICE" />
           <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -42,6 +43,8 @@
     <EntitySetMapping Name="INFOUSERs">
       <EntityTypeMapping TypeName="BARBERSHOPModel.INFOUSER">
         <MappingFragment StoreEntitySet="INFOUSER">
+          <ScalarProperty Name="LINK_FB_USER" ColumnName="LINK_FB_USER" />
+          <ScalarProperty Name="AVT_USER" ColumnName="AVT_USER" />
           <ScalarProperty Name="ID_INFO_USER" ColumnName="ID_INFO_USER" />
           <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
           <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
@@ -72,6 +75,7 @@
           <ScalarProperty Name="PHONE" ColumnName="PHONE" />
           <ScalarProperty Name="LINK_FB" ColumnName="LINK_FB" />
           <ScalarProperty Name="LINK_INSTAGRAM" ColumnName="LINK_INSTAGRAM" />
+          <ScalarProperty Name="DESCRIPSTION_NV" ColumnName="DESCRIPSTION_NV" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

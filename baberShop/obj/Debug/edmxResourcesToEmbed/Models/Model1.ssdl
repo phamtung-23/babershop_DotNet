@@ -15,12 +15,13 @@
       <PropertyRef Name="ID_BOOKING" />
     </Key>
     <Property Name="ID_BOOKING" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ID_SERVICE" Type="int" />
     <Property Name="ID_USER" Type="int" />
+    <Property Name="NAME_BOOK" Type="nvarchar" MaxLength="100" />
+    <Property Name="PHONE_BOOK" Type="nvarchar" MaxLength="100" />
     <Property Name="DATE_BOOKING" Type="date" />
     <Property Name="TIME_BOOKING" Type="time" Precision="7" />
-    <Property Name="SUM_PRICE" Type="int" />
-    <Property Name="COMMENT" Type="nvarchar" MaxLength="100" />
+    <Property Name="COMMENT" Type="nvarchar" MaxLength="2000" />
+    <Property Name="TRANGTHAI" Type="int" />
   </EntityType>
   <EntityType Name="INFOR_SHOP">
     <Key>
@@ -41,9 +42,11 @@
     </Key>
     <Property Name="ID_INFO_USER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_USER" Type="int" />
+    <Property Name="AVT_USER" Type="nvarchar" MaxLength="1000" />
     <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
     <Property Name="PHONE" Type="nvarchar" MaxLength="11" />
-    <Property Name="ADDRESS_USER" Type="nvarchar" MaxLength="100" />
+    <Property Name="ADDRESS_USER" Type="nvarchar" MaxLength="1000" />
+    <Property Name="LINK_FB_USER" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="MENU">
     <Key>
@@ -67,6 +70,7 @@
     <Property Name="PHONE" Type="nvarchar" MaxLength="20" />
     <Property Name="LINK_FB" Type="nvarchar" MaxLength="100" />
     <Property Name="LINK_INSTAGRAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="DESCRIPSTION_NV" Type="nvarchar" MaxLength="2000" />
   </EntityType>
   <EntityType Name="SERVICE_SHOP">
     <Key>
@@ -76,21 +80,9 @@
     <Property Name="NAME_SERVICE" Type="nvarchar" MaxLength="100" />
     <Property Name="PRICE" Type="int" />
     <Property Name="IMG" Type="nvarchar" MaxLength="100" />
-    <Property Name="DESCRIPSTION" Type="nvarchar" MaxLength="200" />
+    <Property Name="DESCRIPSTION" Type="nvarchar" MaxLength="2000" />
     <Property Name="STATUS_SERVICE" Type="bit" />
   </EntityType>
-  <Association Name="FK_BOOKING_SERVICE">
-    <End Role="SERVICE_SHOP" Type="Self.SERVICE_SHOP" Multiplicity="0..1" />
-    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SERVICE_SHOP">
-        <PropertyRef Name="ID_SERVICE" />
-      </Principal>
-      <Dependent Role="BOOKING">
-        <PropertyRef Name="ID_SERVICE" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_BOOKING_USER">
     <End Role="ACCOUNT_USER" Type="Self.ACCOUNT_USER" Multiplicity="0..1" />
     <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
@@ -123,10 +115,6 @@
     <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SERVICE_SHOP" EntityType="Self.SERVICE_SHOP" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_BOOKING_SERVICE" Association="Self.FK_BOOKING_SERVICE">
-      <End Role="SERVICE_SHOP" EntitySet="SERVICE_SHOP" />
-      <End Role="BOOKING" EntitySet="BOOKING" />
-    </AssociationSet>
     <AssociationSet Name="FK_BOOKING_USER" Association="Self.FK_BOOKING_USER">
       <End Role="ACCOUNT_USER" EntitySet="ACCOUNT_USER" />
       <End Role="BOOKING" EntitySet="BOOKING" />

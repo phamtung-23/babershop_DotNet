@@ -13,10 +13,10 @@ namespace baberShop.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BARBERSHOPEntities4 : DbContext
+    public partial class BARBERSHOPEntities7 : DbContext
     {
-        public BARBERSHOPEntities4()
-            : base("name=BARBERSHOPEntities4")
+        public BARBERSHOPEntities7()
+            : base("name=BARBERSHOPEntities7")
         {
         }
     
